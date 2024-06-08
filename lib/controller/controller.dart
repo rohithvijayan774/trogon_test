@@ -24,4 +24,32 @@ class Controller extends ChangeNotifier {
       print('Error : : : $e');
     }
   }
+
+  Future<void> fetchLevelsByCourse() async {
+    try {
+      var response =
+          await http.get(Uri.parse("$levelsByCourseBaseurl?auth_token=$authToken"));
+      if (response.statusCode == 200) {
+        print(response.body);
+      } else {
+        print('failed to fetch');
+      }
+    } catch (e) {
+      print('Error : : : $e');
+    }
+  }
+
+  Future<void> fetchGetLessonVideo() async {
+    try {
+      var response =
+          await http.get(Uri.parse("$getLessonVideosBaseurl?auth_token=$authToken"));
+      if (response.statusCode == 200) {
+        print(response.body);
+      } else {
+        print('failed to fetch');
+      }
+    } catch (e) {
+      print('Error : : : $e');
+    }
+  }
 }
